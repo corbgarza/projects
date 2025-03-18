@@ -1,0 +1,5 @@
+#!/bin/bash
+cd $HOME/dotfiles
+sudo echo $(which zsh) >> /etc/shells
+chsh -s $(which zsh)
+git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
