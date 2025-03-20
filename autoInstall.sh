@@ -8,3 +8,4 @@ git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$H
 git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles && cd $HOME/dotfiles && stow gitconfig i3 p10k picom polybar rofi zsh
 
 chsh -s $(which zsh) && source ~/.zshrc && zsh -c "brew install bat nvim yazi" 
+sudo update-alternatives --config x-terminal-emulator
