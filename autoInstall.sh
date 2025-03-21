@@ -6,6 +6,7 @@ if ! command -v brave-browser > /dev/null; then curl -fsS https://dl.brave.com/i
 
 git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles && cd $HOME/dotfiles && stow gitconfig i3 p10k picom polybar rofi zsh
+sudo cp ~/dotfiles/fonts/* /usr/local/share/fonts/
 
 chsh -s $(which zsh) && source ~/.zshrc && zsh -c "brew install bat nvim yazi" 
 sudo update-alternatives --config x-terminal-emulator
