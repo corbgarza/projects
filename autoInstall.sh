@@ -3,7 +3,7 @@ read -p "Install My Files (y/n)? " FILES
 if [ $FILES = "n" ] || [ $FILES = "N" ]; then
 	echo "SKIPPING"
 else
-	sudo apt install -y brightnessctl btop build-essential cmake curl feh ffmpeg fonts-noto-color-emoji fzf g++ gettext gpick i3 kitty lightdm network-manager ninja-build nm-tray openssh-client openssh-server openvpn pcmanfm picom pkg-config polybar psmisc pulseaudio python3 ripgrep rofi samba smbclient speedtest-cli stow tealdeer vlc x11-xserver-utils xsel zoxide zsh
+	sudo apt install -y brightnessctl btop build-essential cmake curl feh ffmpeg fonts-noto-color-emoji fzf g++ gettext git gpick i3 kitty lightdm network-manager ninja-build nm-tray openssh-client openssh-server openvpn pcmanfm picom pkg-config polybar psmisc pulseaudio python3 ripgrep rofi samba smbclient speedtest-cli stow tealdeer vlc x11-xserver-utils xsel zoxide zsh
 fi
 
 read -p "Install Homebrew and Brave (y/n)? " BREWBRAVE
