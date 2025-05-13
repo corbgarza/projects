@@ -3,7 +3,7 @@ read -p "Install My PKGs (y/n)? " FILES
 if [ $FILES = "n" ] || [ $FILES = "N" ]; then
 	echo "SKIPPING"
 else
-	sudo apt install -y brightnessctl build-essential cmake curl g++ gettext git gpick i3 lightdm network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pkg-config polybar psmisc python3 samba smbclient stow x11-xserver-utils xsel zsh
+	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 kitty lightdm network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pkg-config polybar psmisc python3 samba smbclient stow vlc x11-xserver-utils xsel zoxide zsh
 fi
 
 read -p "Install Homebrew and Brave (y/n)? " BREWBRAVE
@@ -21,7 +21,6 @@ if [ $BREWPKGS = "n" ] || [ $BREWPKGS = "N" ]; then
 	echo "SKIPPING"
 else
 	zsh -c "brew install bat btop feh ffmpeg fzf gedit imagemagick nvim pulseaudio ripgrep rofi tealdeer yazi"
-	zsh -c "brew install --cask alacritty font-noto-color-emoji kitty vlc zoxide" 
 fi
 
 read -p "Setup NVIM, dotfiles, fonts, and ZSH (y/n)? " SETUP
