@@ -13,7 +13,7 @@ read -p "Setup ZSH? " ZSH
 if [ $PKGS = "n" ] || [ $PKGS = "N" ]; then
 	echo "\n\n****No PKGS installing!"
 else
-	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 lightdm network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pipx pkg-config polybar psmisc python3 samba smbclient stow vlc x11-xserver-utils xsel zoxide zsh
+	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 lightdm mpv network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pipx pkg-config polybar psmisc python3 samba smbclient stow vlc x11-xserver-utils xsel zoxide zsh
 fi
 
 if [ $BREW = "n" ] || [ $BREW = "N" ]; then
