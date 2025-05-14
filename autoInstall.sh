@@ -14,6 +14,7 @@ else
 	fi
 	if ! command -v brave-browser > /dev/null; then curl -fsS https://dl.brave.com/install.sh | sh; 
 	fi
+	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 fi
 
 read -p "Install Homebrew PKGs (y/n)? " BREWPKGS
