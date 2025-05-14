@@ -1,38 +1,44 @@
 #!/bin/bash
-read -p "Install My PKGs (y/n)? " FILES
-if [ $FILES = "n" ] || [ $FILES = "N" ]; then
-	echo "SKIPPING"
+read -p "Install PKGS? " PKGS
+read -p "Install Homebrew? " BREW
+read -p "Install Homebrew PKGS? " BREWPKGS
+read -p "Install Brave? " BRAVE
+read -p "Install Python PKGS? " PIPX
+read -p "Install Kitty? " KITTY
+read -p "Install Fonts? " FONTS
+read -p "Setup NVIM? " NVIM
+read -p "Setup dotfiles? " DOTFILES
+read -p "Setup ZSH? " ZSH
+
+if [ $PKGS = "n" ] || [ $PKGS = "N" ]; then
+	echo "\n\n****No PKGS installing!"
 else
-	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 kitty lightdm network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pkg-config polybar psmisc python3 samba smbclient stow vlc x11-xserver-utils xsel zoxide zsh
+	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 lightdm network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pipx pkg-config polybar psmisc python3 samba smbclient stow vlc x11-xserver-utils xsel zoxide zsh
 fi
 
-read -p "Install Homebrew and Brave (y/n)? " BREWBRAVE
-if [ $BREWBRAVE = "n" ] || [ $BREWBRAVE = "N" ]; then
-	echo "SKIPPING"
+if [ $BREW = "n" ] || [ $BREW = "N" ]; then
+	echo "\n\n****Homebrew not installing!"
 else
-	if ! command -v brew > /dev/null; then sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash; 
-	fi
-	if ! command -v brave-browser > /dev/null; then curl -fsS https://dl.brave.com/install.sh | sh; 
-	fi
-	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+	if ! command -v brew > /dev/null; then sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash; fi
 fi
 
-read -p "Install Homebrew PKGs (y/n)? " BREWPKGS
-if [ $BREWPKGS = "n" ] || [ $BREWPKGS = "N" ]; then
-	echo "SKIPPING"
+if [ $BRAVE = "n" ] || [ $BRAVE = "N" ]; then
+	echo "\n\n****Brave not installing!"
 else
-	zsh -c "brew install bat btop feh ffmpeg fzf gedit imagemagick nvim pulseaudio ripgrep rofi tealdeer yazi"
+	if ! command -v brave-browser > /dev/null; then curl -fsS https://dl.brave.com/install.sh | sh; fi
 fi
 
-read -p "Setup NVIM, dotfiles, fonts, and ZSH (y/n)? " SETUP
-if [ $SETUP = "n" ] || [ $SETUP = "N" ]; then
-	echo "SKIPPING"
+if [ $KITTY = "n" ] || [ $KITTY = "N" ]; then
+	echo "\n\n****Kitty not installing!"
 else
-	git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-	git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles && cd $HOME/dotfiles && stow gitconfig i3 p10k picom polybar rofi zsh
-	sudo cp ~/dotfiles/fonts/* /usr/local/share/fonts/
-	chsh -s $(which zsh) 
-	source ~/.zshrc 
-	sudo update-alternatives --config x-terminal-emulator
+	if ! command -v kitty > /dev/null; then curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin; fi
+fi
+
+if [ $PIPX = "n" ] || [ $PIPX = "N" ]; then
+	echo "\n\n****No Python PKGS installing!"
+else
+	pipx install pywal16
+	pipx install yt-dlp
+	pipx install spotdl
 fi
 
