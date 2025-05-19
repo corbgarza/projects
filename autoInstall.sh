@@ -12,7 +12,7 @@ read -p "Setup ZSH? " ZSH
 if [ $PKGS = "n" ] || [ $PKGS = "N" ]; then
 	echo "\n\n****No PKGS installing!****"
 else
-	sudo apt install -y alacritty brightnessctl build-essential cmake curl fonts-noto-color-emoji g++ gettext git gpick i3 lightdm mpv network-manager ninja-build nm-tray openssh-client openssh-server pcmanfm picom pipx pkg-config polybar psmisc python3 samba smbclient stow x11-xserver-utils xsel zoxide zsh
+	sudo apt install -y alacritty brightnessctl curl fonts-noto-color-emoji git i3 lightdm network-manager nm-tray openssh-client openssh-server pcmanfm picom pipx polybar psmisc python3 samba smbclient stow x11-xserver-utils zsh
 fi
 
 if [ $BREW = "n" ] || [ $BREW = "N" ]; then
@@ -24,7 +24,7 @@ fi
 if [ $BREWPKGS = "n" ] || [ $BREWPKGS = "N" ]; then
 	echo "\n\n****Homebrew PKGS not installing!****"
 else
-	zsh -c "brew install bat btop feh ffmpeg fzf gedit imagemagick nvim pulseaudio ripgrep rofi tealdeer yazi"
+	zsh -c "brew install bat btop feh ffmpeg fzf gedit gettext imagemagick mpv nvim pulseaudio ripgrep rofi tealdeer xsel yazi zoxide"
 fi
 
 if [ $BRAVE = "n" ] || [ $BRAVE = "N" ]; then
@@ -57,15 +57,16 @@ if [ $DOTFILES = "n" ] || [ $DOTFILES = "N" ]; then
 	echo "\n\n****dotfiles not setting up!****"
 else
 	git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles 
-	cd $HOME/dotfiles && stow gitconfig i3 kitty p10k picom polybar qutebrowser rofi zsh
-	sudo cp ~/dotfiles/fonts/* /usr/local/share/fonts/
+	cd $HOME/dotfiles
+	stow gitconfig i3 kitty p10k picom polybar qutebrowser rofi zsh
+	sudo cp $HOME/dotfiles/fonts/* /usr/local/share/fonts/
 fi
 
 if [ $ZSH = "n" ] || [ $ZSH = "N" ]; then
 	echo "\n\n****ZSH not setting up!****"
 else
 	chsh -s $(which zsh)
-	source ~/.zshrc
+	source $HOME/.zshrc
 	sudo update-alternatives --config editor
 	sudo update-alternatives --config x-terminal-emulator
 fi
