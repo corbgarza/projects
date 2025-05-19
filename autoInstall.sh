@@ -51,21 +51,21 @@ if [ $NVIM = "n" ] || [ $NVIM = "N" ]; then
 	echo "\n\n****Nvim not setting up!****"
 else
 	git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-	chsh -s $(which zsh) 
-	source ~/.zshrc 
-	sudo update-alternatives --config x-terminal-emulator
 fi
 
 if [ $DOTFILES = "n" ] || [ $DOTFILES = "N" ]; then
 	echo "\n\n****dotfiles not setting up!****"
 else
-	git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles && cd $HOME/dotfiles && stow gitconfig i3 p10k picom polybar rofi zsh
+	git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles 
+	cd $HOME/dotfiles && stow gitconfig i3 kitty p10k picom polybar qutebrowser rofi zsh
 	sudo cp ~/dotfiles/fonts/* /usr/local/share/fonts/
 fi
 
 if [ $ZSH = "n" ] || [ $ZSH = "N" ]; then
 	echo "\n\n****ZSH not setting up!****"
 else
+	chsh -s $(which zsh)
 	source ~/.zshrc
+	sudo update-alternatives --config editor
 	sudo update-alternatives --config x-terminal-emulator
 fi
