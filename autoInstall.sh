@@ -1,4 +1,4 @@
-sudo apt install -y alacritty brightnessctl curl fonts-noto-color-emoji git i3 kitty lightdm network-manager nm-tray openssh-client openssh-server pcmanfm picom pipx polybar psmisc python3 samba smbclient stow x11-xserver-utils zsh
+sudo apt install -y alacritty brightnessctl curl fonts-noto-color-emoji git i3 kitty lightdm network-manager nm-tray openssh-client openssh-server pcmanfm picom pipx polybar psmisc python3 samba smbclient stow sxhkd x11-xserver-utils zsh
 
 sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
