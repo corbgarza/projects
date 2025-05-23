@@ -9,6 +9,10 @@ git clone https://github.com/corbgarza/kickstart.nvim.git "${XDG_CONFIG_HOME:-$H
 git clone https://github.com/corbgarza/dotfiles.git $HOME/dotfiles 
 git clone https://github.com/corbgarza/projects.git $HOME/projects
 git clone https://github.com/corbgarza/Wallpaper.git $HOME/Wallpaper
+if [[ ! -e ~/repos/powerlevel10k ]]; then git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/repos/powerlevel10k; echo "installing powerlevel10k"; fi
+if [[ ! -e ~/repos/zsh-syntax-highlighting ]]; then git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/repos/zsh-syntax-highlighting; echo "installing syntax-highlighting"; fi 
+if [[ ! -e ~/repos/zsh-autosuggestions ]]; then git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/repos/zsh-autosuggestions; echo "installing autosuggestions"; fi
+if [[ ! -e ~/dotfiles ]]; then git clone https://github.com/corbgarza/dotfiles $HOME/dotfiles; echo "installing dotfiles"; fi
 
 cd $HOME/dotfiles
 stow gitconfig i3 kitty myscripts p10k picom polybar qutebrowser rofi sxhkd zsh
