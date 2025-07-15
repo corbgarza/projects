@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt install -y nala git >/dev/null && echo "****Installed nala and git!****"
+git clone https://github.com/corbgarza/projects.git $HOME/projects >/dev/null
 git clone https://github.com/corbgarza/dotfiles.git $HOME/dotfiles >/dev/null && echo "****Cloned dotfiles!****"
 #curl -fsS https://dl.brave.com/install.sh | sh > /dev/null && echo "****Installed Brave!****"
 sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash >/dev/null && echo "****Installed Brew!****"
