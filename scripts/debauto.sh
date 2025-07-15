@@ -5,7 +5,7 @@ git clone https://github.com/corbgarza/dotfiles.git $HOME/dotfiles >/dev/null &&
 #curl -fsS https://dl.brave.com/install.sh | sh > /dev/null && echo "****Installed Brave!****"
 sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash >/dev/null && echo "****Installed Brew!****"
 
-total=$(wc -l <$HOME/dotfiles/scripts/debauto.progs)
+total=$(wc -l <$HOME/projects/scripts/debauto.progs)
 while IFS=, read -r installer package; do	
   gitpath=$HOME/.config/$(echo $package | awk -F "." '{print $(NF-1)}')
   n=$((n + 1))
@@ -15,7 +15,7 @@ while IFS=, read -r installer package; do
 	"p") pipx install $package > /dev/null && echo "****Installed $package, #$n of $total!****" ;;
 	"g") git clone --depth=1 https://github.com/$package $gitpath > /dev/null && echo "****Installed $package, #$n of $total!****" ;;
 	esac
-done <$HOME/dotfiles/scripts/debauto.progs
+done <$HOME/projects/scripts/debauto.progs
 
 cd $HOME/dotfiles && git remote set-url origin git@github.com:corbgarza/dotfiles.git >/dev/null && echo "****Set dotfiles url!****"
 sudo cp $HOME/dotfiles/fonts/* /usr/local/share/fonts/ && echo "****Copied Fonts!****"
