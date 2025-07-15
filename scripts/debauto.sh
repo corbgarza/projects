@@ -22,7 +22,6 @@ cd $HOME/dotfiles && git remote set-url origin git@github.com:corbgarza/dotfiles
 sudo cp $HOME/dotfiles/fonts/* /usr/local/share/fonts/ && echo "****Copied Fonts!****"
 sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub && sudo update-grub > /dev/null && echo "****Updated Grub!****"
 #sudo echo "export EDITOR=$(which nvim)" >> /root/.profile && echo "root EDITOR is set to nvim!"
-chsh -s $(which fish) && echo "****Changed default shell to fish!****"
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"; echo 'Installed Fisher!'
 
 mkdir -p $HOME/.config
