@@ -1,5 +1,5 @@
 installer,package
-a,bat
+b,bat
 a,brightnessctl
 a,btop
 a,eza
