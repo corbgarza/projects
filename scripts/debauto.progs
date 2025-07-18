@@ -2,6 +2,7 @@ installer,package
 b,bat
 a,brightnessctl
 a,btop
+a,curl
 a,eza
 b,fd
 a,feh
