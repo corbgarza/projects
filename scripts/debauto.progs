@@ -10,14 +10,14 @@ a,ffmpeg
 a,fish
 a,fonts-noto-color-emoji
 a,fzf
-a,gcc
+b,gcc
 a,git
 a,i3
 a,imagemagick
 a,kitty
 a,mpv
 a,network-manager
-a,neovim
+b,nvim
 a,openssh-client
 a,openssh-server
 a,picom
