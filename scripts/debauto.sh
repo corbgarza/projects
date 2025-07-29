@@ -5,10 +5,12 @@ sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.
 git clone https://github.com/corbgarza/projects.git $HOME/projects >/dev/null
 git clone https://github.com/corbgarza/dotfiles.git $HOME/dotfiles >/dev/null
 git clone https://github.com/corbgarza/Wallpaper.git $HOME/Wallpaper >/dev/null
+
 mkdir -p $HOME/.config
 cd $HOME/dotfiles
 stow fish gitconfig i3 kitty nvim picom polybar qutebrowser rofi sxhkd yt-dlp
 cd $HOME
+
 apt_array=("brightnessctl" "btop" "curl" "eza" "feh" "ffmpeg" "fish" "fonts-noto-color-emoji" "fzf" "git" "i3" "imagemagick" "kitty" "mpv" "network-manager" "openssh-client" "openssh-server" "picom" "pipx" "polybar" "psmisc" "pulseaudio" "python3" "qutebrowser" "ripgrep" "rofi" "stow" "sxhkd" "tealdeer" "tree" "virt-manager" "vlc" "x11-server-utils" "xinit" "xsel" "zoxide")
 brew_array=("bat" "fd" "gcc" "nvim")
 pip_array=("spotdl" "pywal16" "yt-dlp")
