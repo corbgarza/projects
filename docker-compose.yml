@@ -49,8 +49,6 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-    ports: 
-      - 8096:8096
     volumes:
       - /media/media/docker/jellfin/config:/config
       - /media/media:/media
@@ -66,7 +64,6 @@ services:
     volumes:
       - /media/media/docker/radarr/config:/config
       - /media/media/movies:/movies
-      - /media/media/downloads:/downloads
     restart: unless-stopped
 
   sonarr:
@@ -79,7 +76,6 @@ services:
     volumes:
       - /media/media/docker/sonarr/config:/config
       - /media/media/tvshows:/tvshows
-      - /media/media/downloads:/downloads
     restart: unless-stopped
 
   prowlarr:
@@ -103,6 +99,8 @@ services:
       - PGID=1000
     volumes:
       - /media/media/docker/jellyseerr/config:/app/config
+      - /media/media/movies:/movies
+      - /media/media/tvshows:/tvshows
     restart: unless-stopped
 
   bazarr:
@@ -153,4 +151,50 @@ services:
       - /media/media/docker/mylar3/config:/config
       - /media/media/comics:/comics
       - /media/media/downloads:/downloads
+    restart: unless-stopped
+
+  mc:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+    volumes:
+      - /media/media/docker/mc:/data
+
+  skyrimserver:
+    container_name: skyrimserver
+    image: tiltedphoques/st-reborn-server:latest
+    ports:
+     - "10578:10578/udp"
+    volumes:
+     - /media/media/docker/skyrimserver/config:/home/server/config
+     - /media/media/docker/skyrimserver/logs:/home/server/logs
+     - /media/docker/skyrimserver/Data:/home/server/Data
+     - /etc/localtime:/etc/localtime:ro
+     - /etc/timezone:/etc/timezone:ro
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  hbbs:
+    container_name: hbbs
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs
+    volumes:
+      - /media/media/docker/rustdesk:/root
+    network_mode: "host"
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+
+  hbbr:
+    container_name: hbbr
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    volumes:
+      - /media/media/docker/rustdesk:/root
+    network_mode: "host"
     restart: unless-stopped
