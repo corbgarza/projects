@@ -11,13 +11,13 @@ cd $HOME/dotfiles
 stow fish gitconfig i3 kitty nvim picom polybar qutebrowser rofi sxhkd yt-dlp
 cd $HOME
 
-apt_array=("brightnessctl" "btop" "curl" "eza" "feh" "ffmpeg" "fish" "fonts-noto-color-emoji" "fzf" "git" "i3" "imagemagick" "kitty" "mpv" "network-manager" "openssh-client" "openssh-server" "picom" "pipx" "polybar" "psmisc" "pulseaudio" "python3" "qutebrowser" "ripgrep" "rofi" "stow" "sxhkd" "tealdeer" "tree" "virt-manager" "vlc" "x11-server-utils" "xinit" "xsel" "zoxide")
-brew_array=("bat" "fd" "gcc" "nvim")
+apt_array=("brightnessctl" "btop" "curl" "feh" "ffmpeg" "fish" "fonts-noto-color-emoji" "fzf" "git" "i3" "imagemagick" "kitty" "mpv" "network-manager" "openssh-client" "openssh-server" "picom" "pipx" "polybar" "psmisc" "pulseaudio" "python3" "qutebrowser" "ripgrep" "rofi" "stow" "sxhkd" "tealdeer" "tree" "virt-manager" "vlc" "x11-xserver-utils" "xinit" "xsel" "zoxide")
+brew_array=("bat" "eza""fd" "gcc" "nvim")
 pip_array=("spotdl" "pywal16" "yt-dlp")
 
 sudo nala install -y ${apt_array[@]} >/dev/null
-/home/linuxbrew/.linuxbrew/bin/brew nala install ${brew_array[@]} >/dev/null
-pipx install ${pip_array[@]} >/dev/null
+/home/linuxbrew/.linuxbrew/bin/brew install ${brew_array[@]} >/dev/null
+#pipx install ${pip_array[@]} >/dev/null
 
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 curl -fsS https://dl.brave.com/install.sh | sh >/dev/null
